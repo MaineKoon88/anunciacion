@@ -10,6 +10,14 @@
     --font-main: 'Open Sans', sans-serif;
     --font-title: 'Montserrat', sans-serif;
     --transition: all 0.3s ease;
+    
+    /* Colores para cada botón */
+    --institucional-color: #3498db;
+    --novedades-color: #2ecc71;
+    --talleres-color: #f39c12;
+    --administracion-color: #9b59b6;
+    --descargas-color: #1abc9c;
+    --parroquia-color: #e74c3c;
 }
 
 /* Reset y estilos base */
@@ -76,17 +84,99 @@ a {
     transition: var(--transition);
 }
 
+/* Estilos para cada botón con colores únicos */
 .nav-btn {
     padding: 0.5rem 1rem;
     font-weight: 600;
-    color: var(--primary-color);
-    transition: var(--transition);
+    color: var(--text-light);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform: translateZ(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Efecto hover para todos los botones */
 .nav-btn:hover {
-    color: var(--accent-color);
-    transform: translateY(-2px);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Efecto activo para todos los botones */
+.nav-btn:active {
+    transform: scale(0.98);
+}
+
+/* Colores específicos para cada botón */
+.nav-btn[href="#institucional"] {
+    background-color: var(--institucional-color);
+}
+
+.nav-btn[href="#novedades"] {
+    background-color: var(--novedades-color);
+}
+
+.nav-btn[href="#talleres"] {
+    background-color: var(--talleres-color);
+}
+
+.nav-btn[href="#administracion"] {
+    background-color: var(--administracion-color);
+}
+
+.nav-btn[href="#descargas"] {
+    background-color: var(--descargas-color);
+}
+
+.nav-btn[href="#parroquia"] {
+    background-color: var(--parroquia-color);
+}
+
+/* Efecto hover específico para cada botón */
+.nav-btn[href="#institucional"]:hover {
+    background-color: #2980b9;
+}
+
+.nav-btn[href="#novedades"]:hover {
+    background-color: #27ae60;
+}
+
+.nav-btn[href="#talleres"]:hover {
+    background-color: #e67e22;
+}
+
+.nav-btn[href="#administracion"]:hover {
+    background-color: #8e44ad;
+}
+
+.nav-btn[href="#descargas"]:hover {
+    background-color: #16a085;
+}
+
+.nav-btn[href="#parroquia"]:hover {
+    background-color: #c0392b;
+}
+
+/* Efecto de onda al hacer clic */
+.nav-btn:after {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: transform 0.5s ease-out;
+}
+
+.nav-btn:active:after {
+    transform: scale(2);
+    opacity: 0;
 }
 
 .mobile-menu-btn {
@@ -331,8 +421,6 @@ a {
         text-align: center;
         padding: 0.8rem;
         margin: 0.2rem 0;
-        background-color: var(--primary-color);
-        color: white;
         border-radius: 4px;
         transition: all 0.3s ease;
     }
@@ -394,4 +482,17 @@ a {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
+}
+
+/* Animaciones personalizadas */
+@keyframes buttonZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
