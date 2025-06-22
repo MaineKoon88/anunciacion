@@ -12,44 +12,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <style>
-    /* ESTILOS DE FALLBACK GARANTIZADOS */
-    .noticias-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-family: system-ui, sans-serif;
-    }
-    .noticia-card {
-      background: white;
-      border-radius: 8px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      border: 1px solid #eee;
-    }
-    .noticia-titulo {
-      font-size: 1.3rem;
-      color: #2c3e50;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-    .noticia-fecha {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .noticia-resumen {
-      color: #34495e;
-      line-height: 1.6;
-    }
-    .btn-ver-todas {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: 500;
-    }
-  </style>
+   
 
 </head>
 <body>
@@ -120,18 +83,21 @@
         </section>
     </main>
 
-    <!-- Sección de Noticias -->
+<!-- Sección de Noticias -->
 <section class="noticias-section">
     <div class="noticias-header">
         <h2>Últimas Noticias</h2>
-        <a href="noticias.php" class="btn-ver-todas">Ver todas →</a>
+        <a href="noticias.php" class="btn-ver-todas">Ver todas</a>
     </div>
     
     <div id="contenedor-noticias" class="noticias-list">
-        <!-- Contenido dinámico se cargará aquí -->
-        <div class="cargando">
-            <div class="spinner"></div>
-            <p>Cargando noticias...</p>
+        <!-- Ejemplo de noticia (estructura que debe generar tu JavaScript) -->
+        <div class="noticia-card">
+            <a href="noticia.php?id=1" class="noticia-link">
+                <h3 class="noticia-titulo">Título de la noticia de ejemplo</h3>
+                <span class="noticia-fecha">25 de junio de 2023</span>
+                <p class="noticia-resumen">Este es un resumen de ejemplo de la noticia que se está mostrando en el listado principal del sitio web...</p>
+            </a>
         </div>
     </div>
 </section>
