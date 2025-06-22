@@ -1,25 +1,119 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    // ==============================================
+    // FRASES MOTIVADORAS
+    // ==============================================
+    const quotes = [
+        {
+            text: "La educación es el arma más poderosa para cambiar el mundo",
+            author: "Nelson Mandela"
+        },
+        {
+            text: "Enseñar es aprender dos veces",
+            author: "Joseph Joubert"
+        },
+        {
+            text: "La educación no es preparación para la vida, es la vida misma",
+            author: "John Dewey"
+        },
+        {
+            text: "El arte supremo del maestro es despertar el goce de la expresión creativa y el conocimiento",
+            author: "Albert Einstein"
+        },
+        {
+            text: "Educar la mente sin educar el corazón no es educación en absoluto",
+            author: "Aristóteles"
+        }
+    ];
+
+    const quoteContainer = document.querySelector('.motivational-quote');
+    const quoteText = document.querySelector('.quote-text');
+    const quoteAuthor = document.querySelector('.quote-author');
+
+    if (quoteContainer && quoteText && quoteAuthor) {
+        let currentIndex = 0;
+
+        function changeQuote() {
+            // Aplicar fade out
+            quoteContainer.classList.add('fade-out');
+            
+            // Esperar a que termine la transición de fade out
+            setTimeout(() => {
+                // Cambiar el contenido
+                currentIndex = (currentIndex + 1) % quotes.length;
+                quoteText.textContent = `"${quotes[currentIndex].text}"`;
+                quoteAuthor.textContent = `- ${quotes[currentIndex].author}`;
+                
+                // Aplicar fade in
+                quoteContainer.classList.remove('fade-out');
+            }, 500);
+        }
+
+        // Cambiar frase cada 8 segundos
+        setInterval(changeQuote, 8000);
+    }
+
+    // ==============================================
+    // MENÚ RESPONSIVE MEJORADO
+    // ==============================================
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinksContainer = document.querySelector('.nav-links-container');
+    const navbar = document.querySelector('.navbar');
+    const navLeft = document.querySelector('.nav-left');
+    const navRight = document.querySelector('.nav-right');
     const body = document.body;
     
-    if (mobileMenuBtn && navLinksContainer) {
+    if (mobileMenuBtn && navbar && navLeft && navRight) {
         mobileMenuBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            navLinksContainer.classList.toggle('active');
             
+            // Alternar clase active en el navbar
+            navbar.classList.toggle('active');
+            
+            // Cambiar icono
             const icon = this.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             }
             
+            // Bloquear scroll del body
             body.classList.toggle('no-scroll');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navbar.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                    body.classList.remove('no-scroll');
+                }
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (navbar.classList.contains('active') &&
+                !navbar.contains(e.target) && 
+                (!mobileMenuBtn || !mobileMenuBtn.contains(e.target))) {
+                
+                navbar.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+                body.classList.remove('no-scroll');
+            }
         });
     }
 
-    // Efecto ripple para los botones
+    // ==============================================
+    // EFECTO RIPPLE PARA BOTONES
+    // ==============================================
     const navButtons = document.querySelectorAll('.nav-btn');
     navButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -42,41 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 ripple.remove();
             }, 1000);
-            
-            // Cerrar menú si está en móvil
-            if (window.innerWidth <= 768) {
-                navLinksContainer.classList.remove('active');
-                if (mobileMenuBtn) {
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
-                    }
-                }
-                body.classList.remove('no-scroll');
-            }
         });
     });
 
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (navLinksContainer && navLinksContainer.classList.contains('active') &&
-            !navLinksContainer.contains(e.target) && 
-            (!mobileMenuBtn || !mobileMenuBtn.contains(e.target))) {
-            
-            navLinksContainer.classList.remove('active');
-            if (mobileMenuBtn) {
-                const icon = mobileMenuBtn.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            }
-            body.classList.remove('no-scroll');
-        }
-    });
-
-    // Smooth scrolling for anchor links
+    // ==============================================
+    // SCROLL SUAVE PARA ENLACES
+    // ==============================================
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -94,8 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Sticky navbar on scroll
-    const navbar = document.querySelector('.navbar');
+    // ==============================================
+    // NAVBAR STICKY AL HACER SCROLL
+    // ==============================================
     const logo = document.querySelector('.logo');
     const heroSection = document.querySelector('.hero');
     
@@ -111,7 +177,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Parallax effect for hero section
+    // ==============================================
+    // EFECTO PARALLAX PARA HERO SECTION
+    // ==============================================
     if (heroSection) {
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;

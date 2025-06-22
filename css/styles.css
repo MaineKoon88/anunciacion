@@ -191,7 +191,7 @@ a {
 .hero {
     position: relative;
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/aula.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -357,6 +357,228 @@ a {
     margin-top: 2rem;
 }
 
+/* Estilos para las frases motivadoras */
+.motivational-quote {
+    max-width: 250px;
+    text-align: right;
+    margin-right: 15px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.motivational-quote.fade-out {
+    opacity: 0;
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.quote-author {
+    font-size: 0.75rem;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+/* Asegurar alineación vertical */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* noticias.css - Versión garantizada */
+.noticias-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Reset de estilos conflictivos */
+#contenedor-noticias,
+#contenedor-noticias * {
+  all: initial;
+  font-family: inherit;
+}
+
+.noticias-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 0.5rem;
+}
+
+.noticias-header h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.noticias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Estilos con alta especificidad */
+section.noticias-section div.noticia-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+section.noticias-section div.noticia-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+section.noticias-section a.noticia-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+section.noticias-section h3.noticia-titulo {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+section.noticias-section span.noticia-fecha {
+  display: block;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+}
+
+section.noticias-section p.noticia-resumen {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Botón */
+section.noticias-section a.btn-ver-todas {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  color: #00d2ff;
+}
+
+.rotating-icon {
+  display: inline-block;
+}
+
+.rotating-icon i {
+  transition: opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ocultar en móviles */
+@media (max-width: 992px) {
+    .motivational-quote {
+        display: none;
+    }
+}
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero-title {
@@ -494,5 +716,100 @@ a {
     to {
         transform: scale(4);
         opacity: 0;
+    }
+}
+
+/* Estilos generales del navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--light-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+.logo-container {
+    order: 1;
+}
+
+/* Botón hamburguesa - oculto por defecto */
+.mobile-menu-btn {
+    display: none;
+    order: 3;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    z-index: 100;
+}
+
+/* Contenedores de navegación */
+.nav-left, .nav-right {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-left {
+    order: 2;
+}
+
+.nav-right {
+    order: 4;
+}
+
+/* Frases motivadoras */
+.motivational-quote {
+    max-width: 250px;
+    text-align: right;
+    margin-right: 15px;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Mostrar botón hamburguesa */
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Ocultar menús principales */
+    .nav-left, .nav-right:not(.motivational-quote) {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        order: 5;
+        padding: 0.5rem 0;
+    }
+    
+    /* Mostrar menús al activar */
+    .navbar.active .nav-left,
+    .navbar.active .nav-right {
+        display: flex;
+    }
+    
+    /* Ocultar frases motivadoras en móvil */
+    .motivational-quote {
+        display: none;
+    }
+    
+    /* Estilos para botones en móvil */
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        margin: 0.2rem 0;
+    }
+    
+    /* Ajustar logo en móvil */
+    .logo {
+        height: 60px;
     }
 }

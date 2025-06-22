@@ -7,25 +7,72 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+    /* ESTILOS DE FALLBACK GARANTIZADOS */
+    .noticias-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: system-ui, sans-serif;
+    }
+    .noticia-card {
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+    .noticia-titulo {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .noticia-fecha {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .noticia-resumen {
+      color: #34495e;
+      line-height: 1.6;
+    }
+    .btn-ver-todas {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+
 </head>
 <body>
     <header class="header">
     <nav class="navbar">
         <div class="logo-container">
-            <img src="images/logo.png" alt="Colegio Parroquial Nuestra Señora de la Anunciación" class="logo">
+            <img src="images/logo.png" alt="Colegio Parroquial" class="logo">
         </div>
         
-        <div class="nav-links-container">
-            <div class="nav-left">
-                <a href="#institucional" class="nav-btn">Institucional</a>
-                <a href="#novedades" class="nav-btn">Novedades</a>
-                <a href="#talleres" class="nav-btn">Talleres</a>
+        <div class="nav-left">
+            <a href="#institucional" class="nav-btn">Institucional</a>
+            <a href="#novedades" class="nav-btn">Novedades</a>
+            <a href="#talleres" class="nav-btn">Talleres</a>
+        </div>
+        
+        <div class="nav-right">
+            <div class="motivational-quote">
+                <p class="quote-text">"La educación es el arma más poderosa..."</p>
+                <p class="quote-author">- Nelson Mandela</p>
             </div>
-            <div class="nav-right">
-                <a href="#administracion" class="nav-btn">Administración</a>
-                <a href="#descargas" class="nav-btn">Descargas</a>
-                <a href="#parroquia" class="nav-btn">Parroquia</a>
-            </div>
+            <a href="#administracion" class="nav-btn">Administración</a>
+            <a href="#descargas" class="nav-btn">Descargas</a>
+            <a href="#parroquia" class="nav-btn">Parroquia</a>
         </div>
         
         <div class="mobile-menu-btn">
@@ -73,6 +120,32 @@
         </section>
     </main>
 
+    <!-- Sección de Noticias -->
+<section class="noticias-section">
+    <div class="noticias-header">
+        <h2>Últimas Noticias</h2>
+        <a href="noticias.php" class="btn-ver-todas">Ver todas →</a>
+    </div>
+    
+    <div id="contenedor-noticias" class="noticias-list">
+        <!-- Contenido dinámico se cargará aquí -->
+        <div class="cargando">
+            <div class="spinner"></div>
+            <p>Cargando noticias...</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Asegúrate que esta línea esté justo antes de cerrar el body -->
+
+
+<!-- Incluye jQuery (opcional pero recomendado) -->
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -96,11 +169,15 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Colegio Parroquial Nuestra Señora de la Anunciación. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Colegio Parroquial Nuestra Señora de la Anunciación. Todos los derechos reservados.</p>
+            <p class="author">Hecho por nach_os <span class="rotating-icon"><i class="fas fa-code"></i></span></p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/form-validation.js"></script>
+    <script src="js/noticias.js"></script>
+    <script src="js/carga-noticias.js"></script>
+    <script src="js/rotatingicon.js"></script>
 </body>
 </html>
